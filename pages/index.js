@@ -1,20 +1,25 @@
-import { Button, Flex, FormControl, FormLabel, Heading, Input } from "@chakra-ui/react";
+import { Heading, Text } from "@chakra-ui/react";
+
+
 
 const IndexPage = () => {
     return (
-        <FormControl>
-            <Flex height="100vh" alignItems="center" justifyContent="center">
-                <Flex direction="column" background="gray.100" padding={12} rounded={6}>
-                    <Heading mb={6}>Login</Heading>
-                    <FormLabel htmlFor='email'>Email address</FormLabel>
-                    <Input type="email" id="email" placeholder="faysalkhan@gmail.com" mb={3} />
-                    <FormLabel htmlFor='password'>Password</FormLabel>
-                    <Input type="password" id="password" placeholder="*******" mb={6} />
-                    <Button colorScheme="blue">Login</Button>
-                </Flex>
-
-            </Flex>
-        </FormControl>
+        <>
+            <Heading
+                fontWeight={600}
+                fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
+                lineHeight={'110%'}>
+                Make money from <br />
+                <Text as={'span'} color={'green.400'}>
+                    your audience
+                </Text>
+            </Heading>
+            <Text color={'gray.500'}>
+                Monetize your content by charging your most loyal readers and reward
+                them loyalty points. Give back to your loyal readers by granting
+                them access to your pre-releases and sneak-peaks.
+            </Text>
+        </>
     )
 }
 export default IndexPage;
