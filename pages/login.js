@@ -1,9 +1,10 @@
-import { Box, Button, Checkbox, Flex, FormControl, FormLabel, Heading, HStack, Input, Link, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Checkbox, FormControl, FormLabel, Heading, HStack, Input, Link, Text, VStack } from "@chakra-ui/react";
 import NextLink from "next/link";
 
 const login = () => {
     return (
         <Box
+            as='form'
             w={['full', 'md']}
             p={[8, 10]}
             mt={[20, '10vh']}
@@ -23,11 +24,11 @@ const login = () => {
 
                 {/* form control  */}
 
-                <FormControl>
+                <FormControl isRequired>
                     <FormLabel htmlFor='email'>Email address</FormLabel>
                     <Input type="email" id="email" placeholder="faysalkhan@gmail.com" mb={3} />
                 </FormControl>
-                <FormControl>
+                <FormControl isRequired>
                     <FormLabel htmlFor='password'>Password</FormLabel>
                     <Input type="password" id="password" placeholder="*******" mb={6} />
                 </FormControl>
