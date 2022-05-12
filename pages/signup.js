@@ -30,12 +30,12 @@ const IndexPage = () => {
                 <HStack justify='space-between' w="full">
 
                     <FormControl isRequired>
-                        <Input type="text" id="firstName" mb={2} />
+                        <Input type="text" id="firstName" name="signup__firstName" mb={2} />
                         <FormLabel htmlFor='firstName' color="gray.600" fontSize='sm' fontWeight="400">First Name</FormLabel>
                     </FormControl>
 
                     <FormControl isRequired>
-                        <Input type="text" id="lastName" mb={2} />
+                        <Input type="text" id="lastName" name="signup__lastName" mb={2} />
                         <FormLabel htmlFor='lastName' color="gray.600" fontSize='sm' fontWeight="400">Second Name</FormLabel>
                     </FormControl>
 
@@ -43,13 +43,13 @@ const IndexPage = () => {
 
                 <Text fontWeight="600">Email</Text>
                 <FormControl isRequired>
-                    <Input type="email" id="email" mb={2} />
+                    <Input type="email" id="email" name="signup__email" mb={2} />
                     <FormLabel htmlFor='email' color="gray.600" fontSize='sm' fontWeight="400">Email address</FormLabel>
                 </FormControl>
 
                 <Text fontWeight="600">Password</Text>
                 <FormControl isRequired>
-                    <Input type="password" id="password" mb={2} />
+                    <Input type="password" id="password" name="signup__password" mb={2} />
                     <FormLabel htmlFor='password' color="gray.600" fontSize='sm' fontWeight="400">Password</FormLabel>
                 </FormControl>
 

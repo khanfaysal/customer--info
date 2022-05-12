@@ -26,11 +26,11 @@ const login = () => {
 
                 <FormControl isRequired>
                     <FormLabel htmlFor='email'>Email address</FormLabel>
-                    <Input type="email" id="email" placeholder="faysalkhan@gmail.com" mb={3} />
+                    <Input type="email" id="email" name="login__email" placeholder="faysalkhan@gmail.com" mb={3} />
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel htmlFor='password'>Password</FormLabel>
-                    <Input type="password" id="password" placeholder="*******" mb={6} />
+                    <Input type="password" id="password" name="password" placeholder="*******" mb={6} />
                 </FormControl>
 
                 <HStack justify='space-between' w="full">

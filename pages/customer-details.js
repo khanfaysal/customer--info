@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Box, Button, Center, Checkbox, FormControl, FormLabel, Heading, HStack, Input, Link, Radio, RadioGroup, Stack, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, Checkbox, FormControl, FormLabel, Heading, HStack, Input, Link, Radio, RadioGroup, Stack, Text, Textarea, VStack } from "@chakra-ui/react";
 import NextLink from "next/link";
 
 const CustomerDetails = () => {
 
     const [value, setValue] = useState('male');
+
     return (
         <Box
             as='form'
@@ -32,12 +33,12 @@ const CustomerDetails = () => {
                 <HStack justify='space-between' w="full">
 
                     <FormControl isRequired>
-                        <Input type="text" id="firstName" mb={2} />
+                        <Input type="text" id="firstName" name="customer__firstName" mb={2} />
                         <FormLabel htmlFor='firstName' color="gray.600" fontSize='sm' fontWeight="400">First Name</FormLabel>
                     </FormControl>
 
                     <FormControl isRequired>
-                        <Input type="text" id="lastName" mb={2} />
+                        <Input type="text" id="lastName" name="customer__lastName" mb={2} />
                         <FormLabel htmlFor='lastName' color="gray.600" fontSize='sm' fontWeight="400">Second Name</FormLabel>
                     </FormControl>
 
@@ -47,24 +48,24 @@ const CustomerDetails = () => {
                 <Text fontWeight="600">Address</Text>
 
                 <FormControl isRequired>
-                    <Input type="text" id="streetAddress" mb={2} />
+                    <Input type="text" id="streetAddress" name="customer__strAddr" mb={2} />
                     <FormLabel htmlFor='streetAddress' color="gray.600" fontSize='sm' fontWeight="400">Street Address</FormLabel>
                 </FormControl>
 
                 <FormControl isRequired>
+                    <Input type="text" id="streetAddress1" name="customer__strAddr1" mb={2} />
                     <FormLabel htmlFor='streetAddress1' color="gray.600" fontSize='sm' fontWeight="400">Street Address 1</FormLabel>
-                    <Input type="text" id="streetAddress1" mb={2} />
                 </FormControl>
 
                 <HStack justify='space-between' w="full">
 
                     <FormControl isRequired>
-                        <Input type="text" id="city" mb={2} />
+                        <Input type="text" id="city" name="customer__city" mb={2} />
                         <FormLabel htmlFor='city' color="gray.600" fontSize='sm' fontWeight="400">City</FormLabel>
                     </FormControl>
 
                     <FormControl isRequired>
-                        <Input type="text" id="province" mb={2} />
+                        <Input type="text" id="province" name="customer__state" mb={2} />
                         <FormLabel htmlFor='province' color="gray.600" fontSize='sm' fontWeight="400">Province/State</FormLabel>
                     </FormControl>
 
@@ -75,12 +76,12 @@ const CustomerDetails = () => {
                 <Text fontWeight="600">Phone Number And Email</Text>
                 <HStack justify='space-between' w="full">
                     <FormControl isRequired>
-                        <Input type="text" id="phoneNumber" mb={2} />
+                        <Input type="text" id="phoneNumber" name="customer__phone" mb={2} />
                         <FormLabel htmlFor='phoneNumber' color="gray.600" fontSize='sm' fontWeight="400">Phone Number</FormLabel>
                     </FormControl>
 
                     <FormControl isRequired>
-                        <Input type="email" id="email" mb={2} />
+                        <Input type="email" id="email" name="customer__email" mb={2} />
                         <FormLabel htmlFor='email' color="gray.600" fontSize='sm' fontWeight="400">Email</FormLabel>
                     </FormControl>
 
@@ -100,12 +101,14 @@ const CustomerDetails = () => {
                     </RadioGroup>
 
                     <FormControl isRequired>
-                        <Input type="number" id="number" mb={2} />
+                        <Input type="number" id="number" name="customer__age" mb={2} />
                         <FormLabel htmlFor='number' color="gray.600" fontSize='sm' fontWeight="400">Age</FormLabel>
                     </FormControl>
 
                 </HStack>
 
+                {/* text area */}
+                <Textarea />
 
                 <Button mb={3} colorScheme="blue">Sign up</Button>
                 <Center>
