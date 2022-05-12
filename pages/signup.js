@@ -4,6 +4,7 @@ import NextLink from "next/link";
 
 const IndexPage = () => {
     return (
+
         <FormControl>
             <Flex height="100vh" alignItems="center" justifyContent="center">
                 <Flex direction="column" background="gray.100" padding={12} rounded={6}>
@@ -24,8 +25,8 @@ const IndexPage = () => {
                     <Button mb={3} colorScheme="blue">Sign up</Button>
                     <p >Already a member?
 
-                        &nbsp;<NextLink href='/customer-details' passHref>
-                            <Link color='blue.500'>Sign in</Link>
+                        &nbsp;<NextLink href='/login' passHref>
+                            <Link color='blue.500'>Log in</Link>
                         </NextLink>
                     </p>
 
