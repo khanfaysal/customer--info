@@ -1,33 +1,13 @@
 import { useState } from "react";
-import { Box, Button, Center, Checkbox, FormControl, FormLabel, Heading, HStack, Input, Link, Radio, RadioGroup, Stack, Text, Textarea, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, FormControl, FormLabel, Heading, HStack, Input, Link, Radio, RadioGroup, Stack, Text, Textarea, VStack } from "@chakra-ui/react";
 import NextLink from "next/link";
 
-// initial form data
-
-// const InitialFormData = {
-//     firstName: "",
-//     lastName: "",
-//     customer__strAddr: "",
-//     customer__strAddr1: "",
-//     customer__city: "",
-//     customer__state: "",
-//     customer__phone: "",
-//     customer__email: "",
-//     gender: "",
-//     customer__age: "",
-//     customer__feedback: ""
-// }
 
 const CustomerDetails = () => {
 
     // /form data managing states
     const [formData, setFormData] = useState({});
-    const [errorMessage, setErrorMessage] = useState(formData);
     const [gender, setGender] = useState()
-
-    console.log(gender);
-
-
 
 
     // input handler
@@ -36,11 +16,8 @@ const CustomerDetails = () => {
         setFormData((prev) => {
             return {
                 ...prev, [e.target.name]: e.target.value
-
             }
         })
-        // const { name, value } = e.target;
-        // setFormData({ ...formData, [name]: value });
 
     }
 
@@ -52,7 +29,8 @@ const CustomerDetails = () => {
     //on submit handler
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        setErrorMessage(validator(formData));
+        // setErrorMessage(validator(formData));
+        setFormData(formData)
     }
 
 
@@ -156,8 +134,6 @@ const CustomerDetails = () => {
 
                 </HStack>
 
-                {/* text area section */}
-                <Textarea name="customer__feedback" />
 
                 <Button onClick={onSubmitHandler} mb={3} colorScheme="blue">Sign up</Button>
                 <Center>
@@ -174,29 +150,3 @@ const CustomerDetails = () => {
     )
 }
 export default CustomerDetails;
-
-const validator = (data) => {
-
-    //regexes
-    const regexForEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const regexForName = /^[a-zA-Z ]{2,30}$/;
-
-    // error obejct
-    let err = {};
-
-    //email validation
-    if (!data.email.trim()) {
-        err.email = "Email is required!";
-    } else if (!regexForEmail.test(data.email)) {
-        err.email = "Email is not in valid format!"
-    }
-
-    //password validation
-    if (!data.password.trim()) {
-        err.password = "Password is required!";
-    } else if (data.password < 8) {
-        err.password = "Password is not at least 8 charecters!"
-    }
-
-    return err;
-}
