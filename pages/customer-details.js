@@ -6,6 +6,21 @@ const CustomerDetails = () => {
 
     const [value, setValue] = useState('male');
 
+    // initial form data
+
+    const InitialFormData = {
+        firstName: "",
+        lastName: "",
+        customer__strAddr: "",
+        customer__strAddr1: "",
+        customer__city: "",
+        customer__state: "",
+        customer__phone: "",
+        customer__email: "",
+        gender: "",
+        customer__age: ""
+    }
+
     return (
         <Box
             as='form'
@@ -22,8 +37,8 @@ const CustomerDetails = () => {
         >
             <VStack spacing={4} align='flex-start' w='full'>
                 <VStack spacing={1} align={['flex-start', 'center']} w='full'>
-                    <Heading>Sign Up</Heading>
-                    <Text>Enter your Information</Text>
+                    <Heading>Form</Heading>
+                    <Text>Customer details form</Text>
                 </VStack>
 
                 {/* form control  */}
@@ -57,8 +72,8 @@ const CustomerDetails = () => {
                     <FormLabel htmlFor='streetAddress1' color="gray.600" fontSize='sm' fontWeight="400">Street Address 1</FormLabel>
                 </FormControl>
 
+                {/* city and state section */}
                 <HStack justify='space-between' w="full">
-
                     <FormControl isRequired>
                         <Input type="text" id="city" name="customer__city" mb={2} />
                         <FormLabel htmlFor='city' color="gray.600" fontSize='sm' fontWeight="400">City</FormLabel>
@@ -70,9 +85,8 @@ const CustomerDetails = () => {
                     </FormControl>
 
 
+                    {/* phone number and email section */}
                 </HStack>
-
-                {/* phone number and email */}
                 <Text fontWeight="600">Phone Number And Email</Text>
                 <HStack justify='space-between' w="full">
                     <FormControl isRequired>
@@ -87,16 +101,15 @@ const CustomerDetails = () => {
 
                 </HStack>
 
-                {/* gender and age */}
-
+                {/* gender and age section*/}
                 <Text fontWeight="600">Gender And Age</Text>
                 <HStack justify='space-between' gap={6} w="full">
 
                     <RadioGroup onChange={setValue} value={value}>
                         <Stack direction='row'>
-                            <Radio value='male'>Male</Radio>
-                            <Radio value='female'>Female</Radio>
-                            <Radio value='others'>Others</Radio>
+                            <Radio name="gender" value='male' id="male">Male</Radio>
+                            <Radio name="gender" value='female' id="female">Female</Radio>
+                            <Radio name="gender" value='others' id="others">Others</Radio>
                         </Stack>
                     </RadioGroup>
 
@@ -107,7 +120,7 @@ const CustomerDetails = () => {
 
                 </HStack>
 
-                {/* text area */}
+                {/* text area section */}
                 <Textarea />
 
                 <Button mb={3} colorScheme="blue">Sign up</Button>
