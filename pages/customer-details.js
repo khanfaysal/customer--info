@@ -4,32 +4,50 @@ import NextLink from "next/link";
 
 // initial form data
 
-const InitialFormData = {
-    firstName: "",
-    lastName: "",
-    customer__strAddr: "",
-    customer__strAddr1: "",
-    customer__city: "",
-    customer__state: "",
-    customer__phone: "",
-    customer__email: "",
-    gender: "",
-    customer__age: ""
-}
+// const InitialFormData = {
+//     firstName: "",
+//     lastName: "",
+//     customer__strAddr: "",
+//     customer__strAddr1: "",
+//     customer__city: "",
+//     customer__state: "",
+//     customer__phone: "",
+//     customer__email: "",
+//     gender: "",
+//     customer__age: "",
+//     customer__feedback: ""
+// }
 
 const CustomerDetails = () => {
 
     // /form data managing states
-    const [formData, setFormData] = useState(InitialFormData);
+    const [formData, setFormData] = useState({});
     const [errorMessage, setErrorMessage] = useState(formData);
+    const [gender, setGender] = useState()
+
+    console.log(gender);
+
+
 
 
     // input handler
     const onChangeHandler = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+
+        setFormData((prev) => {
+            return {
+                ...prev, [e.target.name]: e.target.value
+
+            }
+        })
+        // const { name, value } = e.target;
+        // setFormData({ ...formData, [name]: value });
 
     }
+
+    const allFormData = {
+        ...formData, gender
+    }
+    console.log(allFormData);
 
     //on submit handler
     const onSubmitHandler = (e) => {
@@ -123,7 +141,7 @@ const CustomerDetails = () => {
                 <Text fontWeight="600">Gender And Age</Text>
                 <HStack justify='space-between' gap={6} w="full">
 
-                    <RadioGroup onChange={onChangeHandler}>
+                    <RadioGroup onChange={(e) => setGender(e)}>
                         <Stack direction='row'>
                             <Radio name="gender" value='male' id="male">Male</Radio>
                             <Radio name="gender" value='female' id="female" >Female</Radio>
@@ -139,7 +157,7 @@ const CustomerDetails = () => {
                 </HStack>
 
                 {/* text area section */}
-                <Textarea />
+                <Textarea name="customer__feedback" />
 
                 <Button onClick={onSubmitHandler} mb={3} colorScheme="blue">Sign up</Button>
                 <Center>
