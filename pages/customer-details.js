@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Box, Button, Center, FormControl, FormLabel, Heading, HStack, Input, Link, Radio, RadioGroup, Stack, Text, Textarea, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, FormControl, FormLabel, Heading, HStack, Input, Link, Radio, RadioGroup, Stack, Text, VStack } from "@chakra-ui/react";
 import NextLink from "next/link";
+
 
 
 const CustomerDetails = () => {
 
     // /form data managing states
     const [formData, setFormData] = useState({});
-    const [gender, setGender] = useState()
+    const [gender, setGender] = useState();
 
 
     // input handler
@@ -29,11 +30,11 @@ const CustomerDetails = () => {
     //on submit handler
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        // setErrorMessage(validator(formData));
-        setFormData(formData)
+        setFormData(allFormData)
+        if (allFormData) {
+            alert("form data show in console log");
+        }
     }
-
-
 
     return (
         <Box
@@ -64,6 +65,7 @@ const CustomerDetails = () => {
                     <FormControl isRequired>
                         <Input type="text" id="firstName" name="customer__firstName" onChange={onChangeHandler} mb={2} />
                         <FormLabel htmlFor='firstName' color="gray.600" fontSize='sm' fontWeight="400">First Name</FormLabel>
+
                     </FormControl>
 
                     <FormControl isRequired>
@@ -98,14 +100,15 @@ const CustomerDetails = () => {
                         <FormLabel htmlFor='province' color="gray.600" fontSize='sm' fontWeight="400">Province/State</FormLabel>
                     </FormControl>
 
-
-                    {/* phone number and email section */}
                 </HStack>
+
+                {/* phone number and email section */}
                 <Text fontWeight="600">Phone Number And Email</Text>
                 <HStack justify='space-between' w="full">
                     <FormControl isRequired>
                         <Input type="text" id="phoneNumber" name="customer__phone" onChange={onChangeHandler} mb={2} />
                         <FormLabel htmlFor='phoneNumber' color="gray.600" fontSize='sm' fontWeight="400">Phone Number</FormLabel>
+
                     </FormControl>
 
                     <FormControl isRequired>

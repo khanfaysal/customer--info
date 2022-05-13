@@ -1,0 +1,12 @@
+.errorStyle {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 5px 10px;
+    background-color: #ffeeee;
+    border-radius: 5px;
+    color: #d45252;
+    font-weight: 600;
+    width: inherit;
+    margin-top: .3rem;
+    width: 100%;
+}
